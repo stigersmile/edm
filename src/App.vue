@@ -2,6 +2,8 @@
   <div id="app">
     <FormPage></FormPage>
     <TestPage> </TestPage>
+    <vue-editor v-model="content"></vue-editor>
+
   </div>
 </template>
 
@@ -9,12 +11,14 @@
 // import HelloWorld from './components/HelloWorld.vue'
 import FormPage from './components/FormPage.vue'
 import TestPage from './components/TestPage.vue'
+import { VueEditor } from "vue2-editor";
 
 export default {
   name: 'App',
   components: {
+    TestPage,
+    VueEditor,
     FormPage,
-    TestPage
   }
 }
 </script>
@@ -28,4 +32,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+* {
+  box-sizing: border-box;
+}
+
 </style>

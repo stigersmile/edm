@@ -1,7 +1,6 @@
 <template>
-      <div class="window">
-
-         <!-- information -->
+<div class="window">
+        <!-- information -->
             <form class="information formStyle" @submit.prevent="add">
 
             <label for="activity-title">Picture URL</label>
@@ -88,21 +87,23 @@
             </mj-column>
           </mj-section>
 
-            <!-- <button v-on:click="this.delete(index)">delete</button> -->
         </section>
 
-<!-- view -->
-</div>
+      <!-- <button v-on:click="this.delete(index)">delete</button> -->
+      <!-- view -->
+      </div>
 
+ 
+ 
 <!-- window -->
 </div> 
+
 </template>
 
 <script>
-export default 'FormPage'({
-
-     data:{
-
+export default {
+     data(){
+       return{
             title:"",
             time:"",
             location:"忠孝東路四段170巷17弄1號1樓",
@@ -110,8 +111,8 @@ export default 'FormPage'({
             content:"",
             picture:"",
             activityArr:[]
-        
-    },
+       }         
+     },
      methods:{
         add(){
             //push the message to messageArr
@@ -132,5 +133,29 @@ export default 'FormPage'({
             this.activityArr.splice(index,1)
         },
     }
-})
+}
 </script>
+
+
+<style scoped>
+
+.window {
+  display: flex;
+  padding: 20px;
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 20px;
+}
+
+label {
+  margin-top: 16px;
+}
+.activityBox {
+  border: 1px solid black;
+}
+
+</style>
