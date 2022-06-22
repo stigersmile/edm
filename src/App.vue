@@ -1,23 +1,19 @@
 <template>
   <div id="app">
-    <FormPage></FormPage>
     <TestPage> </TestPage>
-    <vue-editor v-model="content"></vue-editor>
-
+    <FormPage></FormPage>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
 import FormPage from './components/FormPage.vue'
 import TestPage from './components/TestPage.vue'
-import { VueEditor } from "vue2-editor";
+
 
 export default {
   name: 'App',
   components: {
     TestPage,
-    VueEditor,
     FormPage,
   }
 }

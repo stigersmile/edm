@@ -1,7 +1,9 @@
 <template>
+
 <div class="window">
         <!-- information -->
-            <form class="information formStyle" @submit.prevent="add">
+       
+        <form class="information formStyle" @submit.prevent="add">
 
             <label for="activity-title">Picture URL</label>
             <input type="text" v-model="picture" />   
@@ -12,8 +14,8 @@
             <label for="activity-introduction">Introduction:</label>
             <textarea rows="4" cols="50" v-model="introduction">...</textarea>
 
-            <label for="activity-content">Content:</label>
-            <textarea rows="4" cols="50" v-model="content">...</textarea> 
+            <!-- <label for="activity-content">Content:</label>
+            <textarea rows="4" cols="50" v-model="content">...</textarea>  -->
 
             <label for="activity-time">Choose a activity time:</label>
             <input type="datetime-local" v-model="time" />
@@ -21,8 +23,10 @@
             <label for="activity-location">Location:</label>
             <input type="text" v-model="location" />
 
-            <button>add</button>
+            <button class="buttonStyle" >add</button>
+              <vue-editor v-model="HTMLcontent"></vue-editor>
             </form>
+
         <!-- VIEW -->
         <div class="view">
 
@@ -87,30 +91,34 @@
             </mj-column>
           </mj-section>
 
+          <button class="buttonStyle" @click="remove(index)">delete</button> 
         </section>
 
-      <!-- <button v-on:click="this.delete(index)">delete</button> -->
       <!-- view -->
       </div>
 
- 
- 
-<!-- window -->
+<!-- window -->          
 </div> 
 
 </template>
 
 <script>
+import { VueEditor } from "vue2-editor";
 export default {
+    components:{
+       VueEditor
+    },
      data(){
        return{
+       
             title:"",
             time:"",
             location:"忠孝東路四段170巷17弄1號1樓",
             introduction:"",
-            content:"",
+            // content:"",
             picture:"",
-            activityArr:[]
+            activityArr:[],
+            HTMLcontent: ""
        }         
      },
      methods:{
@@ -121,16 +129,17 @@ export default {
                  time:this.time,
                  location:this.location,
                  introduction:this.introduction,
-                 content:this.content,
+                //  content:this.content,
+                 content : this.HTMLcontent,
                  picture:this.picture,
             }
             this.activityArr.push(activity)
             console.log(this.activityArr)
         },
-        delete(index){
+        remove(index){
              console.log("delete"+index)
             // splice the message to messageArr
-            this.activityArr.splice(index,1)
+             this.activityArr.splice(index,1)
         },
     }
 }
@@ -141,14 +150,18 @@ export default {
 
 .window {
   display: flex;
-  padding: 20px;
+  padding: 8px;
 }
 
 .information {
+  width:50%;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  margin: 20px;
+  padding: 8px;
+  margin: 0 20px 0 20px;
+}
+.view{
+   width:50%;
 }
 
 label {
@@ -158,4 +171,9 @@ label {
   border: 1px solid black;
 }
 
+.buttonStyle{
+  width: 100%;
+  margin: 16px auto;
+  display: block;
+}
 </style>
