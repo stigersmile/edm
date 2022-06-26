@@ -43,7 +43,7 @@
             vertical-align="top"
           >
             <mj-column>
-              <mj-button
+              <button style="display:block margin: 0 auto"
                 align="center"
                 background-color="#354552"
                 border-radius="3px"
@@ -57,7 +57,7 @@
                 v-bind:href= "register"
                 text-transform="none"
                 vertical-align="middle"
-                >報名</mj-button
+                >報名</button
               >
             </mj-column>
           </mj-section>
@@ -70,10 +70,15 @@
 <script>
 export default {
     props:["activityInfo"],
+   
     methods:{
          remove(index){
             this.$emit('delete',index); 
         }
+    },
+    data(){
+      return{
+      }
     }
 }
 </script>

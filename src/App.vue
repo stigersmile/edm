@@ -1,19 +1,17 @@
 <template>
   <div id="app">
-    <TestPage> </TestPage>
+    <h1>EDM GENERATOR</h1>
     <FormPage></FormPage>
   </div>
 </template>
 
 <script>
 import FormPage from './components/FormPage.vue'
-import TestPage from './components/TestPage.vue'
 
 
 export default {
   name: 'App',
   components: {
-    TestPage,
     FormPage,
   }
 }
@@ -31,6 +29,11 @@ export default {
 
 * {
   box-sizing: border-box;
+}
+
+.header{
+     display:flex;
+     justify-content:space-between;
 }
 
 </style>
