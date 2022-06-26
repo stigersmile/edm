@@ -11,8 +11,8 @@
             <label for="activity-title">Activiey Name</label>
             <input type="text" v-model="title" />
 
-            <label for="activity-introduction">Introduction:</label>
-            <textarea rows="4" cols="50" v-model="introduction">...</textarea>
+            <!-- <label for="activity-introduction">Introduction:</label> -->
+            <!-- <textarea rows="4" cols="50" v-model="introduction">...</textarea> -->
 
             <label for="activity-time">Choose a activity time:</label>
             <input type="datetime-local" v-model="time" />
@@ -23,9 +23,20 @@
             <label for="activity-register">Register:</label>
             <input type="text" v-model="register" />
 
-            <button class="buttonStyle" >add</button>
-              <vue-editor v-model="HTMLcontent"></vue-editor>
-            </form>
+          
+
+              <label><input type="radio" v-model="current" value="Comp_int" /> 活動介紹</label>
+              <label><input type="radio" v-model="current" value="Comp_act" /> 活動內容</label>
+
+              <div v-if ="current === 'Comp_int'">
+                <vue-editor v-model="introduction" ></vue-editor>
+              </div>
+               <div v-if ="current === 'Comp_act'">
+              <vue-editor v-model="HTMLcontent" ></vue-editor>
+                </div>
+ 
+              <button class="buttonStyle" >add</button>
+         </form>
 
         <!-- VIEW -->
         <div class="view">
@@ -58,8 +69,8 @@ export default {
             activityArr:[],
             register:"",
             HTMLcontent: "",
-
-             mjms_start:`<mjml>
+            current:"Comp_int",
+            mjms_start:`<mjml>
   <mj-body background-color="#F4F4F4" color="#55575d" font-family="Arial, sans-serif">
     <mj-section background-color="#ffffff" background-repeat="repeat" padding-bottom="0px" padding-top="0px" padding="20px 0" text-align="center" vertical-align="top">
       <mj-column>
