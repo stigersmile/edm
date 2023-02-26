@@ -91,6 +91,35 @@ export default {
       //   <mj-section background-color="#ffffff" background-repeat="repeat" padding-bottom="0px" padding="20px 0" text-align="center" vertical-align="top">
       //     <mj-column>`,
 
+      mjms_intro: `<mj-section
+  background-color="#ffffff"
+  background-repeat="repeat"
+  padding-bottom="0px"
+  padding-top="0px"
+  padding="20px 0"
+  text-align="center"
+  vertical-align="top"
+>
+      <mj-column>
+
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" line-height="22px" padding-bottom="0px" padding-left="40px" padding-right="40px" padding-top="0px" padding="10px 25px">
+
+          <p>大家好, 今年我們成立了新的粉專- <strong style="color: black;">Light Up Your Career</strong> </p>
+          <p></p>
+          <p>聚焦在 <strong style="color: black;">職場力&nbsp;x&nbsp;專注力&nbsp;x&nbsp;超越力</strong></p>
+          <p></p>
+          <p>希望在新的一年，為忙於工的您注入正能量，將不定期舉辦各類型職場講座。</p>
+          <p></p>
+          <p>也請大家幫忙按讚，定期收到最新資訊 !</p>
+
+          </p>
+        </mj-text>
+
+        <mj-image align="center" padding="0px 0px" src=https://i.imgur.com/cSwTVn9.jpg target="_blank" width=""></mj-image>
+
+        <mj-button align="center" background-color="#354552" border-radius="3px" color="#ffffff" font-family="Georgia, Helvetica, Arial, sans-serif" font-size="14px" font-weight="normal" inner-padding="10px 25px" padding="10px 25px" text-decoration="none" href="https://www.facebook.com/profile.php?id=100090067823382" text-transform="none" vertical-align="middle">加入</mj-button </mj-column>
+    </mj-section>`,
+
       mjms_end: `<mj-divider border-color="#808080" border-style="solid" border-width="1px" padding-left="100px" padding-right="100px" padding-bottom="20px" padding-top="20px"></mj-divider>
     <mj-section background-color="#ffffff" background-repeat="repeat" padding="20px 0" text-align="center" vertical-align="top">
       <mj-column>
@@ -239,7 +268,8 @@ export default {
       }
 
       let banner = this.getBanner(this.picture_banner);
-      let result = banner + allActivity.join(" ") + this.mjms_end;
+      let result =
+        banner + this.mjms_intro + allActivity.join(" ") + this.mjms_end;
 
       console.log(result);
       let content = result;
